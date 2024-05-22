@@ -6,10 +6,10 @@
 
     <%= render @board %>
 
-    <%= link_to "Edit this board", edit_portal_board_path(@board), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Back to boards", portal_boards_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this board", edit_portal_board_path(@board), class: "btn btn-primary" %>
+    <%= link_to "Back to boards", portal_boards_path, class: "btn" %>
     <div class="inline-block ml-2">
-      <%= button_to "Destroy this board", [:portal, @board], method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      <%= button_to "Destroy this board", [:portal, @board], method: :delete, class: "btn btn-error" %>
     </div>
   </div>
 </div>

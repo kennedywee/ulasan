@@ -22,7 +22,7 @@ class Portal::FeaturesController < PortalController
     @feature.user = @user
 
     if @feature.save
-      redirect_to [:portal, @feature], notice: 'Feature was successfully created.'
+      redirect_to [:portal, @board, @feature], notice: 'Feature was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -30,7 +30,7 @@ class Portal::FeaturesController < PortalController
 
   def update
     if @feature.update(feature_params)
-      redirect_to [:portal, @feature], notice: 'Feature was successfully updated.', status: :see_other
+      redirect_to [:portal, @board, @feature], notice: 'Feature was successfully updated.', status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
@@ -38,7 +38,7 @@ class Portal::FeaturesController < PortalController
 
   def destroy
     @feature.destroy!
-    redirect_to portal_features_url, notice: 'Feature was successfully destroyed.', status: :see_other
+    redirect_to portal_board_features_url(@board), notice: 'Feature was successfully destroyed.', status: :see_other
   end
 
   private

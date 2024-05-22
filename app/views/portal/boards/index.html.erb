@@ -7,15 +7,15 @@
 
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Boards</h1>
-    <%= link_to "New board", new_portal_board_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <%= link_to "New board", new_portal_board_path, class: "btn btn-primary" %>
   </div>
 
   <div id="boards" class="min-w-full">
     <% @boards.each do |board| %>
       <%= render board %>
       <p>
-        <%= link_to "Show this board", [:portal, board], class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-        <%= link_to "Show this board features", portal_board_features_path(board), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+        <%= link_to "Show this board", [:portal, board], class: "btn" %>
+        <%= link_to "Show this board features", portal_board_features_path(board), class: "btn" %>
       </p>
     <% end %>
   </div>
