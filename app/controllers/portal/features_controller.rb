@@ -1,6 +1,6 @@
 class Portal::FeaturesController < PortalController
   before_action :set_feature, only: %i[show edit update destroy]
-  before_action :set_board, only: %i[new create]
+  before_action :set_board
   before_action :set_user, only: :create
 
   def index
@@ -56,6 +56,6 @@ class Portal::FeaturesController < PortalController
   end
 
   def feature_params
-    params.require(:feature).permit(:user_id, :board_id, :title, :description, :category, :vote_count)
+    params.require(:feature).permit(:title, :description, :category, :vote_count)
   end
 end

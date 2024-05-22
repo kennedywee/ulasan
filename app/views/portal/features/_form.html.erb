@@ -1,4 +1,4 @@
-<%= form_with(model: [:portal, @board, @feature], class: "contents") do |form| %>
+<%= form_with(model: [:portal, board, feature], class: "contents") do |form| %>
   <% if feature.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(feature.errors.count, "error") %> prohibited this feature from being saved:</h2>
