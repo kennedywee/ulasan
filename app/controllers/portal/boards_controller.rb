@@ -1,5 +1,6 @@
 class Portal::BoardsController < PortalController
   before_action :set_board, only: %i[show edit update destroy]
+  before_action :set_user, only: :create
 
   def index
     @boards = Board.all
@@ -15,6 +16,7 @@ class Portal::BoardsController < PortalController
 
   def create
     @board = Board.new(board_params)
+    @board.user = @user
 
     if @board.save
       redirect_to [:portal, @board], notice: 'Board was successfully created.'
@@ -42,7 +44,11 @@ class Portal::BoardsController < PortalController
     @board = Board.find(params[:id])
   end
 
+  def set_user
+    @user = current_user
+  end
+
   def board_params
-    params.require(:board).permit(:user_id, :title, :description, :website)
+    params.require(:board).permit(:title, :description, :website)
   end
 end
