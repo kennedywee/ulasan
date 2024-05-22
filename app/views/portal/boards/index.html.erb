@@ -10,13 +10,9 @@
     <%= link_to "New board", new_portal_board_path, class: "btn btn-primary" %>
   </div>
 
-  <div id="boards" class="min-w-full">
+  <div id="boards" class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-5">
     <% @boards.each do |board| %>
       <%= render board %>
-      <p>
-        <%= link_to "Show this board", [:portal, board], class: "btn" %>
-        <%= link_to "Show this board features", portal_board_features_path(board), class: "btn" %>
-      </p>
     <% end %>
   </div>
 </div>
