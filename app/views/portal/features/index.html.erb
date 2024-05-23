@@ -10,12 +10,16 @@
     <%= link_to "New feature", new_portal_board_feature_path, class: "btn btn-primary" %>
   </div>
 
-  <div id="features" class="min-w-full">
-    <% @features.each do |feature| %>
-      <%= render feature %>
-      <p>
-        <%= link_to "Show this feature", [:portal, @board, feature], class: "btn" %>
-      </p>
-    <% end %>
+  <div class='flex flex-col md:flex-row mx-auto w-full gap-12'>
+    <div class=''>
+      <%= render "portal/boards/form", board: @board%>
+    </div>
+
+    <div id="features" class="">
+      <% @features.each do |feature| %>
+        <%= render feature %>
+      <% end %>
+    </div>
   </div>
+
 </div>

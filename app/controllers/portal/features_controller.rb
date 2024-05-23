@@ -4,7 +4,7 @@ class Portal::FeaturesController < PortalController
   before_action :set_user, only: :create
 
   def index
-    @features = @board.features
+    @features = @board.features.order(created_at: :asc)
   end
 
   def show; end

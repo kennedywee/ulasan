@@ -1,9 +1,9 @@
 class Portal::BoardsController < PortalController
   before_action :set_board, only: %i[show edit update destroy]
-  before_action :set_user, only: :create
+  before_action :set_user, only: %i[index create]
 
   def index
-    @boards = Board.all
+    @boards = @user.boards.order(created_at: :asc)
   end
 
   def show; end
