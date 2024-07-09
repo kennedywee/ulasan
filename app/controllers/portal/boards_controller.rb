@@ -1,9 +1,8 @@
 class Portal::BoardsController < PortalController
   before_action :set_board, only: %i[show edit update destroy]
-  before_action :set_user, only: %i[index create]
 
   def index
-    @boards = @user.boards.order(created_at: :asc)
+    @boards = Board.order(created_at: :asc)
   end
 
   def show; end
@@ -19,7 +18,7 @@ class Portal::BoardsController < PortalController
     @board.user = @user
 
     if @board.save
-      redirect_to [:portal, @board], notice: 'Board was successfully created.'
+      redirect_to [ :portal, @board ], notice: "Board was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +26,7 @@ class Portal::BoardsController < PortalController
 
   def update
     if @board.update(board_params)
-      redirect_to [:portal, @board], notice: 'Board was successfully updated.', status: :see_other
+      redirect_to [ :portal, @board ], notice: "Board was successfully updated.", status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
@@ -35,17 +34,13 @@ class Portal::BoardsController < PortalController
 
   def destroy
     @board.destroy!
-    redirect_to portal_boards_url, notice: 'Board was successfully destroyed.', status: :see_other
+    redirect_to portal_boards_url, notice: "Board was successfully destroyed.", status: :see_other
   end
 
   private
 
   def set_board
     @board = Board.find(params[:id])
-  end
-
-  def set_user
-    @user = current_user
   end
 
   def board_params
