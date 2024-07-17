@@ -1,0 +1,30 @@
+<div class="flex flex-col justify-center items-center gap-10">
+  <div class="prose flex flex-col justify-center items-center">
+    <h2>Lumetrika || Lumetrika Sdn Bhd</h2>
+    <p class="text-center">👋 We value your input! Share your feature requests to help us improve our software.</p>
+  </div>
+
+  <div class="flex justify-between items-center w-full gap-3">
+    <input type="text" name="query" class="input input-bordered flex-grow" placeholder="🔍 Start typing to search features...">
+    <select class="select select-primary">
+      <option disabled selected>Filter</option>
+      <option>Trending</option>
+      <option>New</option>
+      <option>Most Liked</option>
+      <option>Most Comments</option>
+    </select>
+    <select class="select select-secondary">
+      <option disabled selected>Label</option>
+      <option>Open</option>
+      <option>Interesting</option>
+      <option>In-Development</option>
+      <option>Shipped!</option>
+      <option>Closed</option>
+    </select>
+    <button class="btn btn-primary">Suggest <%= lucide_icon('plus') %></button>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+    <%= render 'feature' %>
+  </div>
+</div>

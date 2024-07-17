@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
 
   private
     def ensure_user_exists
-      redirect_to first_run_url if User.none?
+      redirect_to new_user_url if User.none?
     end
 
     def render_rejection(status)
