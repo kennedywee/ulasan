@@ -26,17 +26,20 @@ class InitialSchema < ActiveRecord::Migration[7.1]
 
     create_table "boards", force: :cascade do |t|
       t.bigint "user_id", null: false
+      t.string "appname", null: false
       t.string "title"
       t.string "description"
       t.string "website"
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
       t.index [ "user_id" ], name: "index_boards_on_user_id"
+      t.index [ "appname" ], name: "index_boards_on_appname"
     end
 
     create_table "features", force: :cascade do |t|
       t.bigint "user_id", null: false
       t.bigint "board_id", null: false
+      t.integer "identity", null: false
       t.string "title"
       t.string "description"
       t.integer "category"
@@ -46,6 +49,7 @@ class InitialSchema < ActiveRecord::Migration[7.1]
       t.index [ "board_id" ], name: "index_features_on_board_id"
       t.index [ "user_id", "board_id" ], name: "index_features_on_user_id_and_board_id", unique: true
       t.index [ "user_id" ], name: "index_features_on_user_id"
+      t.index [ "identity" ], name: "index_features_on_identity"
     end
 
     add_foreign_key "sessions", "users"
