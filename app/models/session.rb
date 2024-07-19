@@ -7,8 +7,6 @@ class Session < ApplicationRecord
 
   before_create { self.last_active_at ||= Time.now }
 
-  validates :email_address, :password, presence: true
-
   def self.start!(user_agent:, ip_address:)
     create! user_agent: user_agent, ip_address: ip_address
   end
