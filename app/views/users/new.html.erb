@@ -1,0 +1,9 @@
+<h1>User sign up</h1>
+
+<%= form_with model: @user do |form| %>
+  <%= form.text_field :name, placeholder: 'name' %>
+  <%= form.text_field :username, placeholder: 'username' %>
+  <%= form.email_field :email, placeholder: 'email' %>
+  <%= form.password_field :password, placeholder: 'password' %>
+  <%= form.submit %>
+<% end %>
