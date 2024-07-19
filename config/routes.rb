@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resource :session, only: %i[ new create destory ]
   resources :users
   resources :features
+  resources :boards
 
   get "up" => "rails/health#show", as: :rails_health_check
 end
