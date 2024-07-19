@@ -15,6 +15,7 @@ class InitialSchema < ActiveRecord::Migration[7.1]
     create_table "users", force: :cascade do |t|
       t.string "name", null: false
       t.string "email_address", null: false
+      t.string "username", null: false
       t.string "password_digest", null: false
       t.integer "role", null: false
       t.boolean "active", default: true
@@ -22,6 +23,7 @@ class InitialSchema < ActiveRecord::Migration[7.1]
       t.datetime "updated_at", null: false
       t.index [ "email_address" ], name: "index_users_on_email_address", unique: true
       t.index [ "name" ], name: "index_users_on_name", unique: true
+      t.index [ "username" ], name: "index_users_on_username", unique: true
     end
 
     create_table "boards", force: :cascade do |t|
