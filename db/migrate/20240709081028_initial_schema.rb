@@ -17,12 +17,11 @@ class InitialSchema < ActiveRecord::Migration[7.1]
       t.string "email_address", null: false
       t.string "username", null: false
       t.string "password_digest", null: false
-      t.integer "role", null: false
+      t.integer "role", null: false, default: 0
       t.boolean "active", default: true
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
       t.index [ "email_address" ], name: "index_users_on_email_address", unique: true
-      t.index [ "name" ], name: "index_users_on_name", unique: true
       t.index [ "username" ], name: "index_users_on_username", unique: true
     end
 
