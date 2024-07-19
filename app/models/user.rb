@@ -5,6 +5,8 @@ class User < ApplicationRecord
   scope :active, -> { where(active: true) }
   scope :ordered, -> { order(:name) }
 
+  validates :name, :username, :email_address, :password, presence: true
+
   def current?
     self == Current.user
   end

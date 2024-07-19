@@ -1,5 +1,5 @@
 <%= form_with url: session_url do |form| %>
-  <%= form.email_field :email_address, required: true %>
-  <%= form.password_field :password, required: true %>
+  <%= form.email_field :email_address, placeholder: 'email_address', required: true %>
+  <%= form.password_field :password, placeholder: 'password', required: true %>
   <%= form.submit 'sign in' %>
 <% end %>
