@@ -1,4 +1,4 @@
-<nav class="navbar bg-base-100">
+<nav class="navbar">
   <div class="flex-1">
     <a class="btn btn-ghost text-xl">Ulasan</a>
   </div>
@@ -31,7 +31,7 @@
       <div tabindex="0" role="button" class="btn btn-ghost">
         <%= lucide_icon("menu") %>
       </div>
-      <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+      <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 p-2 shadow">
         <li>
           <%= link_to root_path do %>
             <%= lucide_icon("layout-dashboard") %>
@@ -64,13 +64,8 @@
       </div>
       <ul
         tabindex="0"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        <li>
-          <a class="justify-between">
-            Profile
-            <span class="badge">New</span>
-          </a>
-        </li>
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 p-2 shadow">
+        <li><a>Profile</a></li>
         <li><a>Settings</a></li>
         <li><a>Logout</a></li>
       </ul>
