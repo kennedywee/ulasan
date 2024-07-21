@@ -1,9 +1,12 @@
 <%= form_with(model: board, class: "form-control") do |form| %>
   <% if board.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(board.errors.count, "error") %> prohibited this board from being saved:</h2>
+    <div id="error_explanation" role="alert" class="flex flex-col items-start alert alert-error">
+      <div class="flex justify-start items-end space-x-2">
+        <%= lucide_icon("triangle-alert") %>
+        <h2><%= pluralize(board.errors.count, "error") %> prohibited this board from being saved:</h2>
+      </div>
 
-      <ul>
+      <ul class="list-disc list-inside">
         <% board.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
