@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root "boards#index"
-  resource :first_time, only: %i[ show create ]
-  resource :session, only: %i[ new create destory ]
+  resource :session, only: %i[ new create destroy ]
   resources :users
   resources :features
   resources :boards
