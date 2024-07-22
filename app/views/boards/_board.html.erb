@@ -1,17 +1,24 @@
 <div id="<%= dom_id board %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= board.title %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= board.description %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this board", board, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this board", edit_board_path(board), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+<div class="card border">
+  <div class="card-body">
+    <h2 class="flex justify-between">
+      <div class="card-title">
+        <%= lucide_icon("layout-dashboard") %>
+        <%= board.appname %>
+      </div>
+    </h2>
+    <small>lumetrika.com</small>
+    <p>If a dog chews shoes whose shoes does he choose?</p>
+    <div class="divider divider-neutral">features
+      <span class="badge badge-secondary badge-outline">60</span>
+    </div>
+    <div class="card-actions justify-start">
+      <div class="badge badge-outline">Open: 12</div>
+      <div class="badge badge-outline">Interesting: 12</div>
+      <div class="badge badge-outline">Closed: 12</div>
+      <div class="badge badge-outline">In-Development: 12</div>
+      <div class="badge badge-outline">Closed: 12</div>
+    </div>
+  </div>
+</div>
 </div>
