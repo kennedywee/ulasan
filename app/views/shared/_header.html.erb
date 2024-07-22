@@ -4,7 +4,7 @@
   </div>
   <div class="flex-none gap-2">
     <!-- Desktop Menu -->
-    <ul class="menu hidden bg-base-200 lg:menu-horizontal rounded-box lg:flex">
+    <ul class="menu hidden bg-base-200 md:menu-horizontal rounded-box lg:flex">
       <li>
         <%= link_to root_path do %>
           <%= lucide_icon("layout-dashboard") %>
@@ -13,21 +13,20 @@
       </li>
       <li>
         <%= link_to root_path do %>
-          <%= lucide_icon("bell-ring") %>
-          Notification
-          <span class="badge badge-sm">99+</span>
+          <%= lucide_icon("bar-chart-big") %>
+          Stats
         <% end %>
       </li>
       <li>
         <%= link_to root_path do %>
-          <%= lucide_icon("bar-chart-big") %>
-          Stats
-          <span class="badge badge-xs badge-info"></span>
+          <%= lucide_icon("bell-ring") %>
+          Notification
+          <span class="badge badge-info badge-sm">99+</span>
         <% end %>
       </li>
     </ul>
     <!-- Mobile Dropdown -->
-    <div class="dropdown dropdown-end lg:hidden">
+    <div class="dropdown dropdown-end md:hidden">
       <div tabindex="0" role="button" class="btn btn-ghost">
         <%= lucide_icon("menu") %>
       </div>
@@ -40,16 +39,15 @@
         </li>
         <li>
           <%= link_to root_path do %>
-            <%= lucide_icon("bell-ring") %>
-            Notification
-            <span class="badge badge-sm">99+</span>
+            <%= lucide_icon("bar-chart-big") %>
+            Stats
           <% end %>
         </li>
         <li>
           <%= link_to root_path do %>
-            <%= lucide_icon("bar-chart-big") %>
-            Stats
-            <span class="badge badge-xs badge-info"></span>
+            <%= lucide_icon("bell-ring") %>
+            Notification
+            <span class="badge badge-info badge-sm">99+</span>
           <% end %>
         </li>
       </ul>
