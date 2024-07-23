@@ -43,7 +43,7 @@ class InitialSchema < ActiveRecord::Migration[7.1]
       t.integer "identity", null: false
       t.string "title"
       t.string "content"
-      t.integer "category", null: false, default: 0
+      t.integer "label", null: false, default: 0
       t.integer "vote_count", null: false, default: 0
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false

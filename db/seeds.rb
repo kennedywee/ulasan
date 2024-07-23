@@ -53,7 +53,6 @@ Feature.create!(
   identity: 2,
   title: "Feature 2",
   content: "Content for feature 2",
-  category: 0,
   vote_count: 0
 )
 
@@ -64,7 +63,6 @@ Feature.create!(
   identity: 3,
   title: "Feature 3",
   content: "Content for feature 3",
-  category: 0,
   vote_count: 0
 )
 
