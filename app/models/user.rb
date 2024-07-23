@@ -1,5 +1,8 @@
 class User < ApplicationRecord
   has_many :sessions, dependent: :destroy
+  has_many :boards, dependent: :destroy
+  has_many :features, dependent: :destroy
+
   has_secure_password validations: false
 
   scope :active, -> { where(active: true) }

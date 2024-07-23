@@ -1,12 +1,16 @@
 class BoardsController < ApplicationController
-  before_action :set_user, only: %i[ new create ]
+  before_action :set_user, only: %i[ index show new create ]
   before_action :set_board, only: %i[ show edit update destroy ]
 
   def index
-    @boards = Board.all
+    @boards = @user.boards
   end
 
-  def show; end
+  def show
+    puts 'im here'
+    @features = @board.features
+    binding.break
+  end
 
   def new
     @board = Board.new
@@ -49,5 +53,6 @@ class BoardsController < ApplicationController
 
     def set_board
       @board = Board.find(params[:id])
+      Rails.logger.info(@board.inspect)
     end
 end
