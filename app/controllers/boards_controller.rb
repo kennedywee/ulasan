@@ -7,9 +7,7 @@ class BoardsController < ApplicationController
   end
 
   def show
-    puts 'im here'
     @features = @board.features
-    binding.break
   end
 
   def new

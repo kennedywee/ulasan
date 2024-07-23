@@ -17,8 +17,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_081028) do
   create_table "boards", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "appname", null: false
-    t.string "title"
     t.string "description"
+    t.string "company"
     t.string "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -31,9 +31,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_081028) do
     t.bigint "board_id", null: false
     t.integer "identity", null: false
     t.string "title"
-    t.string "description"
-    t.integer "category"
-    t.integer "vote_count"
+    t.string "content"
+    t.integer "category", default: 0, null: false
+    t.integer "vote_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["board_id"], name: "index_features_on_board_id"
