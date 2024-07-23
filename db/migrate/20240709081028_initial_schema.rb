@@ -28,8 +28,8 @@ class InitialSchema < ActiveRecord::Migration[7.1]
     create_table "boards", force: :cascade do |t|
       t.bigint "user_id", null: false
       t.string "appname", null: false
-      t.string "title"
       t.string "description"
+      t.string "company"
       t.string "website"
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
@@ -42,9 +42,9 @@ class InitialSchema < ActiveRecord::Migration[7.1]
       t.bigint "board_id", null: false
       t.integer "identity", null: false
       t.string "title"
-      t.string "description"
-      t.integer "category"
-      t.integer "vote_count"
+      t.string "content"
+      t.integer "category", null: false, default: 0
+      t.integer "vote_count", null: false, default: 0
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
       t.index [ "board_id" ], name: "index_features_on_board_id"
