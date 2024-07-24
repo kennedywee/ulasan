@@ -1,21 +1,32 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+<div class="flex flex-col justify-center items-center gap-10">
+  <div class="prose flex flex-col justify-center items-center">
+    <h2><%= @board.appname %> || <%= @board.company %></h2>
+    <p class="text-center">👋 We value your input! Share your feature requests to help us improve our software.</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_auto_auto] gap-3 w-full items-center">
+    <input type="text" name="query" class="input input-bordered w-full col-span-1 md:col-span-1" placeholder="🔍 Start typing to search features...">
+    <select class="select select-primary w-full md:w-auto col-span-1 md:col-span-1">
+      <option disabled selected>Filter</option>
+      <option>Trending</option>
+      <option>New</option>
+      <option>Most Liked</option>
+      <option>Most Comments</option>
+    </select>
+    <select class="select select-secondary w-full md:w-auto col-span-1 md:col-span-1">
+      <option disabled selected>Label</option>
+      <option>Open</option>
+      <option>Interesting</option>
+      <option>In-Development</option>
+      <option>Shipped!</option>
+      <option>Closed</option>
+    </select>
+    <button class="btn btn-primary w-full md:w-auto col-span-1 md:col-span-1">Suggest <%= lucide_icon('plus') %></button>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+    <% @features.each do |feature| %>
+      <%= render 'feature', feature: feature  %>
     <% end %>
-
-    <%= link_to "Edit this board", edit_board_path(@board), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to "Destroy this boards", board_path(@board), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-    </div>
-    <%= link_to "Back to boards", boards_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-
-
-    <% if @features.any? %>
-      <% @features.each do |feature| %>
-        <%= render 'feature', feature: 'feature'%>
-      <% end %>
-    <% end %>
-
   </div>
 </div>

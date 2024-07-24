@@ -1,1 +1,17 @@
-<h1>helo</h1>
+<div class="p-4 border border-gray-700 rounded-lg hover:shadow-md hover:border-gray-500 cursor-pointer">
+  <div class="flex justify-between">
+    <span class="font-medium text-gray-600"><%= feature.board.appname %>#<%= feature.identity %></span>
+    <span class="badge badge-primary badge-outline"><%= feature.label %></span>
+  </div>
+  <h2 class="mt-2 font-bold text-lg"><%= feature.title %></h2>
+  <p class="mt-2"><%= feature.content %></p>
+  <div class="flex items-end justify-between mt-4">
+    <small class="text-info">Created: <%= feature.created_at.strftime("%-d %B %Y") %></small>
+    <div class="flex gap-4">
+      <button class="btn btn-success btn-sm btn-outline"><%= lucide_icon('chevron-up') %></button>
+      <span class="text-lg">15</span>
+      <button class="btn btn-error btn-sm btn-outline"><%= lucide_icon('chevron-down') %></button>
+    </div>
+  </div>
+</div>
+
