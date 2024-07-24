@@ -20,4 +20,7 @@ module.exports = {
     require("@tailwindcss/typography"),
     require("@tailwindcss/container-queries"),
   ],
+  daisyui: {
+    themes: ["light", "dark", "retro", "wireframe"],
+  },
 };
