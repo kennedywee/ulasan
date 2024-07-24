@@ -3,18 +3,18 @@
 # Create Users
 user1 = User.create!(
   name: "John Doe",
-  email_address: "john.doe@example.com",
+  email_address: "user1@ulasan.com",
   username: "johndoe",
-  password: "password",
+  password: "123123qwe",
   role: 0,
   active: true
 )
 
 user2 = User.create!(
   name: "Jane Smith",
-  email_address: "jane.smith@example.com",
+  email_address: "user2@ulasan.com",
   username: "janesmith",
-  password: "password",
+  password: "123123qwe",
   role: 0,
   active: true
 )
@@ -43,7 +43,6 @@ Feature.create!(
   identity: 1,
   title: "Feature 1",
   content: "Content for feature 1",
-  category: 0,
   vote_count: 0
 )
 
