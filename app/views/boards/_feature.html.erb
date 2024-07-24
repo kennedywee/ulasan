@@ -9,7 +9,7 @@
     <small class="text-info">Created: <%= feature.created_at.strftime("%-d %B %Y") %></small>
     <div class="flex gap-4">
       <button class="btn btn-success btn-sm btn-outline"><%= lucide_icon('chevron-up') %></button>
-      <span class="text-lg">15</span>
+      <span class="text-lg"><%= feature.vote_count %></span>
       <button class="btn btn-error btn-sm btn-outline"><%= lucide_icon('chevron-down') %></button>
     </div>
   </div>
