@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :boards
 
   get "/profile", to: "profiles#edit"
+  patch "/profile", to: "profiles#update"
 
   get "up" => "rails/health#show", as: :rails_health_check
 end

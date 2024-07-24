@@ -6,14 +6,14 @@ class ProfilesController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: "Board was successfully updated.", status: :see_other
+      redirect_to @user, notice: "User was successfully updated.", status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
   end
   private
     def user_params
-      params.require(:user).permit(:name, :email, :username)
+      params.require(:user).permit(:name, :email, :username, :password)
     end
     def set_user
       @user = Current.user
