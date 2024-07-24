@@ -11,14 +11,14 @@
         <small class="italic"><%= board.website %></small>
         <p>If a dog chews shoes whose shoes does he choose?</p>
         <div class="divider divider-neutral">features
-          <span class="badge badge-outline">60</span>
+          <span class="badge badge-outline"><%= board.features.count %></span>
         </div>
         <div class="card-actions justify-start">
-          <div class="badge badge-outline">Open: 12</div>
-          <div class="badge badge-outline">Interesting: 12</div>
-          <div class="badge badge-outline">Closed: 12</div>
-          <div class="badge badge-outline">In-Development: 12</div>
-          <div class="badge badge-outline">Closed: 12</div>
+          <div class="badge badge-outline">open: <%= board.features.open.count %></div>
+          <div class="badge badge-outline">interesting: <%= board.features.interesting.count %></div>
+          <div class="badge badge-outline">closed: <%= board.features.closed.count %></div>
+          <div class="badge badge-outline">in-development: <%= board.features.in_development.count %></div>
+          <div class="badge badge-outline">closed: <%= board.features.closed.count %></div>
         </div>
       </div>
     </div>
