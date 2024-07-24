@@ -51,6 +51,5 @@ class BoardsController < ApplicationController
 
     def set_board
       @board = Board.find(params[:id])
-      Rails.logger.info(@board.inspect)
     end
 end

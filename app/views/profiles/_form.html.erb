@@ -1,0 +1,41 @@
+<%= form_with(model: user, class: "form-control") do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation" role="alert" class="flex flex-col mt-5 items-start alert alert-error">
+      <div class="flex justify-start space-x-3">
+        <%= lucide_icon("triangle-alert") %>
+        <h2><%= pluralize(user.errors.count, "error") %> prohibited this board from being saved:</h2>
+      </div>
+
+      <ul class="list-disc list-inside">
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-3">
+    <%= form.label :name, class: "label" %>
+    <%= form.text_field :name, class: "block w-full input input-bordered" %>
+  </div>
+
+  <div class="my-3">
+    <%= form.label :email_address, class: "label" %>
+    <%= form.text_field :email_address, class: "block w-full input input-bordered" %>
+  </div>
+
+  <div class="my-3">
+    <%= form.label :username, class: "label" %>
+    <%= form.text_field :username, class: "block w-full input input-bordered" %>
+  </div>
+
+  <div class="my-3">
+    <%= form.label :password, class: "label" %>
+    <%= form.text_field :password, class: "block w-full input input-bordered" %>
+  </div>
+
+  <div class="my-3">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
+
