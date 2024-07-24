@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     start_new_session_for @user
     redirect_to root_url
   rescue ActiveRecord::RecordNotUnique
-    redirect_to new_session_url(email_address: user_params[:email_address])
+    redirect_to new_session_url(email_address: user_params[:email_address]), notice: "User already exists. Proceed to login..."
   end
 
   private
