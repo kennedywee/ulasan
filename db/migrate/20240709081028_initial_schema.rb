@@ -49,8 +49,8 @@ class InitialSchema < ActiveRecord::Migration[7.1]
       t.datetime "updated_at", null: false
       t.index [ "board_id" ], name: "index_features_on_board_id"
       t.index [ "user_id", "board_id" ], name: "index_features_on_user_id_and_board_id", unique: true
+      t.index [ "board_id", "identity" ], name: "index_features_on_board_id_and_user_id", unique: true
       t.index [ "user_id" ], name: "index_features_on_user_id"
-      t.index [ "identity" ], name: "index_features_on_identity"
     end
 
     add_foreign_key "sessions", "users"
