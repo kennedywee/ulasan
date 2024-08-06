@@ -79,6 +79,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_081028) do
   create_table "votes", force: :cascade do |t|
     t.bigint "feature_id", null: false
     t.bigint "user_id", null: false
+    t.integer "value", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["feature_id"], name: "index_votes_on_feature_id"

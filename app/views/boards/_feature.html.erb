@@ -8,10 +8,15 @@
   <div class="flex items-end justify-between mt-4">
     <small class="text-info">Created: <%= feature.created_at.strftime("%-d %B %Y") %></small>
     <div class="flex gap-4">
-      <button class="btn btn-success btn-sm btn-outline"><%= lucide_icon('chevron-up') %></button>
+      <%= form_with(model: [feature.board, feature, feature.votes.new], local: true, class: "inline-block") do |form| %>
+        <%= form.hidden_field :value, value: 1 %>
+        <%= form.submit 'Upvotes', class: 'btn btn-success btn-sm btn-outline' %>
+      <% end %>
       <span class="text-lg"><%= feature.votes_count %></span>
-      <button class="btn btn-error btn-sm btn-outline"><%= lucide_icon('chevron-down') %></button>
+      <%= form_with(model: [feature.board, feature, feature.votes.new], local: true, class: "inline-block") do |form| %>
+        <%= form.hidden_field :value, value: -1 %>
+        <%= form.submit 'Downvotes', class: 'btn btn-error btn-sm btn-outline' %>
+      <% end %>
     </div>
   </div>
 </div>
-

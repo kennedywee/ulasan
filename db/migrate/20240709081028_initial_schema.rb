@@ -55,6 +55,7 @@ class InitialSchema < ActiveRecord::Migration[7.1]
     create_table "votes", force: :cascade do |t|
       t.bigint "feature_id", null: false
       t.bigint "user_id", null: false
+      t.integer "value", null: false, default: 1 # Default value is 1 for an upvote
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
       t.index [ "feature_id" ], name: "index_votes_on_feature_id"

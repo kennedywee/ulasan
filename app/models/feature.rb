@@ -9,6 +9,6 @@ class Feature < ApplicationRecord
   validates :title, presence: true
 
   def votes_count
-    votes.count
+    votes.sum(:value)
   end
 end

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :boards do
     resources :features do
+      resources :votes, only: %i[create destroy]
       resources :comments
     end
   end
