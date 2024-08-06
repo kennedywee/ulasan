@@ -7,4 +7,8 @@ class Feature < ApplicationRecord
   enum :label, %w[open interesting in-development shipped closed], default: :open
 
   validates :title, presence: true
+
+  def votes_count
+    votes.count
+  end
 end
