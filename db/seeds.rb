@@ -43,7 +43,6 @@ Feature.create!(
   identity: 1,
   title: "Feature 1",
   content: "Content for feature 1",
-  vote_count: 0
 )
 
 Feature.create!(
@@ -52,7 +51,6 @@ Feature.create!(
   identity: 2,
   title: "Feature 2",
   content: "Content for feature 2",
-  vote_count: 0
 )
 
 # Ensure no duplicate (user_id, board_id) pairs
@@ -62,7 +60,6 @@ Feature.create!(
   identity: 3,
   title: "Feature 3",
   content: "Content for feature 3",
-  vote_count: 0
 )
 
 puts "Seeding done :)"

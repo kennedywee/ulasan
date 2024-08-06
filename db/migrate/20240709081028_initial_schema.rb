@@ -44,7 +44,6 @@ class InitialSchema < ActiveRecord::Migration[7.1]
       t.string "title"
       t.string "content"
       t.integer "label", null: false, default: 0
-      t.integer "vote_count", null: false, default: 0
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
       t.index [ "board_id" ], name: "index_features_on_board_id"
@@ -53,9 +52,33 @@ class InitialSchema < ActiveRecord::Migration[7.1]
       t.index [ "user_id" ], name: "index_features_on_user_id"
     end
 
+    create_table "votes", force: :cascade do |t|
+      t.bigint "feature_id", null: false
+      t.bigint "user_id", null: false
+      t.datetime "created_at", null: false
+      t.datetime "updated_at", null: false
+      t.index [ "feature_id" ], name: "index_votes_on_feature_id"
+      t.index [ "user_id" ], name: "index_votes_on_user_id"
+      t.index [ "user_id", "feature_id" ], name: "index_votes_on_user_id_and_feature_id", unique: true
+    end
+
+    create_table "comments", force: :cascade do |t|
+      t.bigint "feature_id", null: false
+      t.bigint "user_id", null: false
+      t.text "content", null: false
+      t.datetime "created_at", null: false
+      t.datetime "updated_at", null: false
+      t.index [ "feature_id" ], name: "index_comments_on_feature_id"
+      t.index [ "user_id" ], name: "index_comments_on_user_id"
+    end
+
     add_foreign_key "sessions", "users"
     add_foreign_key "boards", "users"
     add_foreign_key "features", "boards"
     add_foreign_key "features", "users"
+    add_foreign_key "votes", "features"
+    add_foreign_key "votes", "users"
+    add_foreign_key "comments", "features"
+    add_foreign_key "comments", "users"
   end
 end

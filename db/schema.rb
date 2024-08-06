@@ -26,6 +26,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_081028) do
     t.index ["user_id"], name: "index_boards_on_user_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.bigint "feature_id", null: false
+    t.bigint "user_id", null: false
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feature_id"], name: "index_comments_on_feature_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "features", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "board_id", null: false
@@ -33,11 +43,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_081028) do
     t.string "title"
     t.string "content"
     t.integer "label", default: 0, null: false
-    t.integer "vote_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["board_id", "identity"], name: "index_features_on_board_id_and_user_id", unique: true
     t.index ["board_id"], name: "index_features_on_board_id"
-    t.index ["identity"], name: "index_features_on_identity"
     t.index ["user_id", "board_id"], name: "index_features_on_user_id_and_board_id", unique: true
     t.index ["user_id"], name: "index_features_on_user_id"
   end
@@ -67,8 +76,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_081028) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.bigint "feature_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feature_id"], name: "index_votes_on_feature_id"
+    t.index ["user_id", "feature_id"], name: "index_votes_on_user_id_and_feature_id", unique: true
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
   add_foreign_key "boards", "users"
+  add_foreign_key "comments", "features"
+  add_foreign_key "comments", "users"
   add_foreign_key "features", "boards"
   add_foreign_key "features", "users"
   add_foreign_key "sessions", "users"
+  add_foreign_key "votes", "features"
+  add_foreign_key "votes", "users"
 end
