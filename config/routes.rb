@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resource :session, only: %i[ new create destroy ]
   resources :users
 
-  resources :boards do
+  resources :boards, path: "" do
     resources :features do
       resources :votes, only: %i[create destroy]
       resources :comments

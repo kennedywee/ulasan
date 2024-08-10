@@ -40,6 +40,10 @@ class BoardsController < ApplicationController
     redirect_to boards_url, notice: "Board was successfully destroyed.", status: :see_other
   end
 
+  def to_param
+    appname
+  end
+
   private
     def board_params
       params.require(:board).permit(:appname, :title, :description, :website, :company)
@@ -50,6 +54,6 @@ class BoardsController < ApplicationController
     end
 
     def set_board
-      @board = Board.find(params[:id])
+      @board = Board.find_by!(appname: params[:id])
     end
 end

@@ -1,0 +1,35 @@
+<%= form_with(model: feature, url: feature.persisted? ? board_feature_path(feature.board, feature) : board_features_path(feature.board), local: true, class: "form-control") do |form| %>
+  <% if feature.errors.any? %>
+    <div id="error_explanation" role="alert" class="flex flex-col mt-5 items-start alert alert-error">
+      <div class="flex justify-start space-x-3">
+        <%= lucide_icon("triangle-alert") %>
+        <h2><%= pluralize(feature.errors.count, "error") %> prohibited this feature from being saved:</h2>
+      </div>
+
+      <ul class="list-disc list-inside">
+        <% feature.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-3">
+    <%= form.label :title, class: "label" %>
+    <%= form.text_field :title, class: "block w-full input input-bordered" %>
+  </div>
+
+  <div class="my-3">
+    <%= form.label :content, class: "label" %>
+    <%= form.text_area :content, rows: 4, class: "w-full textarea textarea-bordered" %>
+  </div>
+
+  <div class="my-3">
+    <%= form.label :label, class: "label" %>
+    <%= form.text_field :label, class: "block w-full input input-bordered" %>
+  </div>
+
+  <div class="my-3">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
