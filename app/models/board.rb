@@ -1,6 +1,7 @@
 class Board < ApplicationRecord
   belongs_to :user
   has_many :features
+  has_rich_text :content
 
   # before_validation :format_appname
 
