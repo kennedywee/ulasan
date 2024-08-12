@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  layout "auth"
   allow_unauthenticated_access only: %i[ new create omniauth ]
 
   before_action :ensure_user_exists, only: :new
