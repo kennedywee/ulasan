@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/auth/:provider/callback", to: "sessions#omniauth"
+
   get "/profile", to: "profiles#edit"
   patch "/profile", to: "profiles#update"
 

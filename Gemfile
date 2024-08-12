@@ -18,12 +18,18 @@ gem "turbo-rails"
 gem "stimulus-rails"
 gem "tailwindcss-rails"
 
+# Authentication
+gem "omniauth"
+gem "omniauth-google-oauth2"
+gem "omniauth-rails_csrf_protection"
+
 # Others
 gem "bcrypt", "~> 3.1.7"
 gem "tzinfo-data", platforms: %i[windows jruby]
 gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
 gem "lucide-rails", "~> 0.4.0"
+gem "dotenv-rails"
 
 group :development, :test do
   gem "debug", platforms: %i[mri windows]

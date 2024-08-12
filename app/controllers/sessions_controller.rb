@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  allow_unauthenticated_access only: %i[ new create ]
+  allow_unauthenticated_access only: %i[ new create omniauth ]
 
   before_action :ensure_user_exists, only: :new
 
@@ -19,6 +19,24 @@ class SessionsController < ApplicationController
     reset_authentication
 
     redirect_to root_url
+  end
+
+  def omniauth
+    user = User.find_or_create_by(uid: request.env["omniauth.auth"]["uid"], provider: request.env["omniauth.auth"]["provider"]) do |u|
+        u.name = request.env["omniauth.auth"]["info"]["name"]
+        u.username = request.env["omniauth.auth"]["info"]["name"]
+        u.email_address = request.env["omniauth.auth"]["info"]["email"]
+        u.role = 0
+        u.active = true
+        u.password = SecureRandom.hex(10)
+    end
+
+    if user.valid?
+      start_new_session_for user
+      redirect_to post_authentication_url
+    else
+      render :new
+    end
   end
 
   private

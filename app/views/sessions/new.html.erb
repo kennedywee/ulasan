@@ -8,4 +8,7 @@
     <%= form.password_field :password, class: 'input input-primary', placeholder: 'password', required: true %>
     <%= form.submit 'Sign In', class: 'btn btn-primary' %>
   <% end %>
+
+  <h3> Or login with Google</h3>
+  <%= button_to "Sign up with Google", "/auth/google_oauth2", data: { turbo: false }, class: 'btn btn-primary' %>
 </div>
