@@ -24,18 +24,14 @@
     <button class="btn btn-primary w-full md:w-auto col-span-1 md:col-span-1">Suggest <%= lucide_icon('plus') %></button>
   </div>
 
-  <% if @board.features.any? %>
+  <% if @features.any? %>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
       <% @features.each do |feature| %>
         <%= render 'feature', feature: feature %>
       <% end %>
     </div>
   <% else %>
-    <div class="w-full h-80 border rounded flex flex-col justify-center items-center gap-5">
-      <h2 class="text-xl font-semibold">This board has no features yet.</h2>
-      <p>Start adding and manage your board with sharing the public or add new features.</p>
-      <%= button_to 'New Features', root_path, class: 'btn btn-ghost' %>
-    </div>
+    <%= render 'empty_feature' %>
   <% end %>
 
 </div>
