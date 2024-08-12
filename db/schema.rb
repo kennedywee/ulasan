@@ -67,7 +67,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_12_143346) do
   create_table "comments", force: :cascade do |t|
     t.bigint "feature_id", null: false
     t.bigint "user_id", null: false
-    t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["feature_id"], name: "index_comments_on_feature_id"
@@ -79,7 +78,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_12_143346) do
     t.bigint "board_id", null: false
     t.integer "identity", null: false
     t.string "title"
-    t.string "content"
     t.integer "label", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

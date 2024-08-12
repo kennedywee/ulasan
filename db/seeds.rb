@@ -22,7 +22,7 @@ user2 = User.create!(
 # Create Boards
 board1 = Board.create!(
   user_id: user1.id,
-  appname: "App One",
+  appname: "hello1",
   description: "First app description",
   company: "Company One",
   website: "http://www.companyone.com"
@@ -30,7 +30,7 @@ board1 = Board.create!(
 
 board2 = Board.create!(
   user_id: user2.id,
-  appname: "App Two",
+  appname: "hello2",
   description: "Second app description",
   company: "Company Two",
   website: "http://www.companytwo.com"
@@ -42,7 +42,6 @@ Feature.create!(
   board_id: board1.id,
   identity: 1,
   title: "Feature 1",
-  content: "Content for feature 1",
 )
 
 Feature.create!(
@@ -50,7 +49,6 @@ Feature.create!(
   board_id: board2.id,
   identity: 2,
   title: "Feature 2",
-  content: "Content for feature 2",
 )
 
 # Ensure no duplicate (user_id, board_id) pairs
@@ -59,7 +57,6 @@ Feature.create!(
   board_id: board2.id,
   identity: 3,
   title: "Feature 3",
-  content: "Content for feature 3",
 )
 
 puts "Seeding done :)"

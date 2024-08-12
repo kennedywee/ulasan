@@ -3,6 +3,7 @@ class Feature < ApplicationRecord
   belongs_to :board
   has_many :votes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_rich_text :content
 
   enum :label, %w[open interesting in-development shipped closed], default: :open
 
