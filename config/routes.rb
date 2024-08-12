@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "boards#index"
   resource :session, only: %i[ new create destroy ]
-  resources :users
+  resources :users, only: %i[ new create ]
 
   resources :boards, path: "" do
     resources :features do

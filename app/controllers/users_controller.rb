@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  layout "auth"
+
   require_unauthenticated_access only: %i[ new create ]
 
   def new
