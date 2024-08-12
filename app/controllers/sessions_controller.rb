@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
         u.password = SecureRandom.hex(10)
     end
 
-    if user.valid?
+    if user.persisted?
       start_new_session_for user
       redirect_to post_authentication_url
     else
